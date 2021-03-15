@@ -102,7 +102,12 @@
 
 							selectedDeviceId = sourceSelect.value;
 							
-							decodeContinuously(codeReader, selectedDeviceId);
+							if(selectedDeviceId === 'undefined'){
+								decodeContinuously(codeReader, undefined);
+							}else{	
+								decodeContinuously(codeReader, selectedDeviceId);
+							}
+							
 	
 							console.log(`Started decode from camera with id ${selectedDeviceId}`)							
 						};
