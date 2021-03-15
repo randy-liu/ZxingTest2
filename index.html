@@ -20,31 +20,30 @@
 	</style>
   </head>
   <body>
-	<div class="well form-horizontal">
-		<div>
-			<a class="button btn btn-default"  id="startButton">Start</a>
-		</div>		
+	 <div class="well form-horizontal"> 
+		 <div> 
+			 <a class="button btn btn-default"  id="startButton">Start</a> 
+		 </div>		 
 		
-		<div class="form-group">
-			<label class="control-label col-sm-4" for="sourceSelect">Change video source:</label>
-			<div class="col-sm-8" id="sourceSelectPanel">
-				<select class="form-control" id="sourceSelect"></select>
-			</div>
-		</div>
+		 <div class="form-group"> 
+			 <label class="control-label col-sm-4" for="sourceSelect">Change video source:</label> 
+			 <div class="col-sm-8" id="sourceSelectPanel"> 
+				 <select class="form-control" id="sourceSelect"></select> 
+			 </div> 
+		 </div> 
 
-		<div class="form-group">
-			<div align="center" class="col-sm-12 embed-responsive embed-responsive-16by9">
-				<video id="video" autoplay="autoplay" class="active" style="border: 1px solid gray"></video>
-			</div>
-		</div>
-	</div>
+		 <div class="form-group"> 
+			 <div align="center" class="col-sm-12 embed-responsive embed-responsive-16by9"> 
+				 <video id="video" autoplay="autoplay" class="active" style="border: 1px solid gray"></video> 
+			 </div> 
+		 </div> 
+	 </div>
 	
 	
 	
   </body>
   
   <script type="text/javascript">
-
 
 
 		function decodeContinuously(codeReader, selectedDeviceId) {
@@ -101,9 +100,10 @@
 						})
 
 						sourceSelect.onchange = () => {
+						
 							codeReader.reset()						
 							console.log('Reset.')
-							
+
 							selectedDeviceId = sourceSelect.value;
 							
 							decodeContinuously(codeReader, selectedDeviceId);
@@ -131,4 +131,5 @@
 		})
 	
 	</script>
+
 </html>
