@@ -23,7 +23,6 @@
 	<div class="well form-horizontal">
 		<div>
 			<a class="button btn btn-default"  id="startButton">Start</a>
-			<a class="button btn btn-default" id="resetButton">Reset</a>
 		</div>		
 		
 		<div class="form-group">
@@ -46,15 +45,7 @@
   
   <script type="text/javascript">
 
-		function decodeOnce(codeReader, selectedDeviceId) {
-			codeReader.decodeFromInputVideoDevice(selectedDeviceId, 'video').then((result) => {
-				console.log(result)
-				document.getElementById('result').textContent = result.text
-			}).catch((err) => {
-				console.error(err)
-				document.getElementById('result').textContent = err
-			})
-		}
+
 
 		function decodeContinuously(codeReader, selectedDeviceId) {
 			codeReader.decodeFromInputVideoDeviceContinuously(selectedDeviceId, 'video', (result, err) => {
@@ -117,22 +108,15 @@
 
 					document.getElementById('startButton').addEventListener('click', () => {
 
-						const decodingStyle = "Continuously";
-
-						if (decodingStyle == "once") {
-							decodeOnce(codeReader, selectedDeviceId);
-						} else {
-							decodeContinuously(codeReader, selectedDeviceId);
-						}
+						codeReader.reset()
+						document.getElementById('result').textContent = '';
+						console.log('Reset.')
+						
+						decodeContinuously(codeReader, selectedDeviceId);
 
 						console.log(`Started decode from camera with id ${selectedDeviceId}`)
 					})
 
-					document.getElementById('resetButton').addEventListener('click', () => {
-						codeReader.reset()
-						document.getElementById('result').textContent = '';
-						console.log('Reset.')
-					})
 
 				})
 				.catch((err) => {
