@@ -24,22 +24,12 @@
 		<div>
 			<a class="button btn btn-default"  id="startButton">Start</a>
 			<a class="button btn btn-default" id="resetButton">Reset</a>
-		</div>
-		
-		<div style="display: table">
-			<label for="decoding-style"> Decoding Style:</label>
-			<select id="decoding-style" size="1">
-				<option value="once">Decode once</option>
-				<option value="continuously">Decode continuously</option>
-			</select>
 		</div>		
 		
 		<div class="form-group">
 			<label class="control-label col-sm-4" for="sourceSelect">Change video source:</label>
 			<div class="col-sm-8" id="sourceSelectPanel">
 				<select class="form-control" id="sourceSelect"></select>
-
-				<input id="decoding-style" type="hidden" value="Continuously" />
 			</div>
 		</div>
 
@@ -127,7 +117,7 @@
 
 					document.getElementById('startButton').addEventListener('click', () => {
 
-						const decodingStyle = document.getElementById('decoding-style').value;
+						const decodingStyle = "Continuously";
 
 						if (decodingStyle == "once") {
 							decodeOnce(codeReader, selectedDeviceId);
