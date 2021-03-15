@@ -101,20 +101,27 @@
 						})
 
 						sourceSelect.onchange = () => {
+							codeReader.reset()						
+							console.log('Reset.')
+							
 							selectedDeviceId = sourceSelect.value;
+							
+							decodeContinuously(codeReader, selectedDeviceId);
+	
+							console.log(`Started decode from camera with id ${selectedDeviceId}`)							
 						};
 
 					}
 
-					document.getElementById('startButton').addEventListener('click', () => {
-
-						codeReader.reset()						
-						console.log('Reset.')
-						
-						decodeContinuously(codeReader, selectedDeviceId);
-
-						console.log(`Started decode from camera with id ${selectedDeviceId}`)
-					})
+					//document.getElementById('startButton').addEventListener('click', () => {
+					//
+					//	codeReader.reset()						
+					//	console.log('Reset.')
+					//	
+					//	decodeContinuously(codeReader, selectedDeviceId);
+					//
+					//	console.log(`Started decode from camera with id ${selectedDeviceId}`)
+					//})
 
 
 				})
